@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Song Recommender</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+    </style>
+</head>
+<body class="bg-gray-100">
+    <button id="darkModeToggleBtn" class="fixed top-4 right-4 p-2 bg-gray-700 text-white rounded-full hover:bg-gray-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+        </svg>
+    </button>
+
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-semibold mb-6">Discover Your Perfect Song</h1>
+        <form id="recommendationForm" class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="mb-4">
+                <label for="genre" class="block text-gray-700 font-bold mb-2">Favorite Music Genre:</label>
+                <input type="text" id="genre" name="genre" class="w-full border rounded-lg py-2 px-3">
+            </div>
+            <div class="mb-4">
+                <label for="mood" class="block text-gray-700 font-bold mb-2">Current Mood:</label>
+                <input type="text" id="mood" name="mood" class="w-full border rounded-lg py-2 px-3">
+            </div>
+            <div class="mb-4">
+                <label for="activity" class="block text-gray-700 font-bold mb-2">Current Activity:</label>
+                <input type="text" id="activity" name="activity" class="w-full border rounded-lg py-2 px-3">
+            </div>
+            <button type="button" id="recommendButton" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                Get Song Recommendation
+            </button>
+        </form>
+        <div id="recommendationResult" class="mt-6 text-center">
+        </div>
+    </div>
+    <script>
+        let songsData;
+        fetch('songs.json')
+            .then(response => response.json())
+            .then(data => {
+                songsData = data;
+            })
+            .catch(error => {
+                console.error('Error fetching data from songs.json:', error);
+            });
+
+        document.getElementById("recommendButton").addEventListener("click", function () {
+            const genre = document.getElementById("genre").value.toLowerCase();
+            const mood = document.getElementById("mood").value.toLowerCase();
+            const activity = document.getElementById("activity").value.toLowerCase();
+            const filteredSongs = songsData.filter(song => {
+                return (
+                    song.genre.toLowerCase() === genre ||
+                    song.mood.toLowerCase() === mood ||
+                    song.activity.toLowerCase() === activity
+                );
+            });
+            if (filteredSongs.length > 0) {
+                const randomIndex = Math.floor(Math.random() * filteredSongs.length);
+                const song = filteredSongs[randomIndex];
+                const spotifyTrackLink = findSpotifyTrackLink(song);
+                if (spotifyTrackLink) {
+                    const spotifyEmbedCode = generateSpotifyEmbed(spotifyTrackLink);
+                    const listenOnSpotifyButton = generateListenOnSpotifyButton(spotifyTrackLink);
+                    document.getElementById("recommendationResult").innerHTML = `
+                        <div>
+                            <strong>${song.title}</strong><br>
+                            ${song.artist}<br>
+                            ${spotifyEmbedCode}<br>
+                            ${listenOnSpotifyButton}
+                        </div>
+                    `;
+                } else {
+                    document.getElementById("recommendationResult").innerText = "No Spotify track link found for this song.";
+                }
+            } else {
+                document.getElementById("recommendationResult").innerText = "No matching songs found.";
+            }
+        });
+
+        function findSpotifyTrackLink(song) {
+            for (const property in song) {
+                if (song.hasOwnProperty(property) && typeof song[property] === 'string' && song[property].includes('spotify.com/track/')) {
+                    return song[property];
+                }
+            }
+            return null;
+        }
+
+        function generateSpotifyEmbed(spotifyTrackLink) {
+            const trackId = spotifyTrackLink.match(/spotify\.com\/track\/(\w+)/)[1];
+            return `
+                <iframe src="https://open.spotify.com/embed/track/${trackId}" width="100%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            `;
+        }
+
+        function generateListenOnSpotifyButton(spotifyTrackLink) {
+            return `
+                <a href="${spotifyTrackLink}" target="_blank" rel="noopener noreferrer" class="mt-4 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Listen On Spotify</a>
+            `;
+        }
+    </script>
+</body>
+</html>

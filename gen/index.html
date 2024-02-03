@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlmostGen</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: transparent;
+        } 
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        @media (max-width: 767px) {
+            video {
+                object-fit: cover;
+            }
+        }
+
+        @media (min-width: 768px) {
+            video {
+                object-fit: cover;
+            }
+        }
+        .fade-up {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .content {
+            padding: 20px;
+            border-radius: 10px;
+        }
+        body, h1, p, li {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto flex justify-center items-center">
+        <div class="p-6 fade-up content">
+            <div class="text-center">
+                <img src="https://cdn.discordapp.com/attachments/1148256815897915422/1161163774431072358/8bxq.gif" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto mb-4">
+                <h1 class="text-2xl font-bold">@AlmostGen / @OTHG</h1>
+                <p class="text-sm">A skilled and proficient Developer / Server Moderator</p>
+                <div id="nzst-time" class="text-xs mt-2"></div>
+            </div>
+            <hr class="my-4 border-gray-700">
+            <section>
+                <h2 class="text-xl font-semibold mb-2">Past Experiences</h2>
+                <ul class="list-disc pl-4">
+                    <li>FreshSMP - Helper</li>
+                    <li>L1festee1 - Jr Moderator</li>
+                    <li>ZedarMC - Jr Moderator</li>
+                    <li>WitheringMC - Manager</li>
+                    <li>MCDevs - Developer</li>
+                </ul>
+            </section>
+            <hr class="my-4 border-gray-700">
+            <section>
+                <h2 class="text-xl font-semibold mb-2">Skills</h2>
+                <ul class="list-disc pl-4">
+                    <li>Web / Desktop / UI UX Development</li>
+                    <li>JavaScript, HTML, CSS, Python & Java.</li>
+                </ul>
+            </section>
+            <hr class="my-4 border-gray-700">
+            <section>
+                <h2 class="text-xl font-semibold mb-2">General Information</h2>
+                <p>Hey there,</p>
+                <p>I'm Gen, a developer with a genuine passion for things like server development and supporting community growth.</p>
+                <p>I've got the skills and enthusiasm to help improve your servers and keep them running smoothly,</p>
+                <p>Whether it's server development or moderation, I'm your perfect choice.</p>
+                <br>
+                <li>Over Twenty Servers Served</li>
+                <br>
+                <li>Six Active Clients</li>
+            </section>
+        </div>
+    </div>
+    <video autoplay loop muted class="mobile-bg">
+        <source src="https://cdn.discordapp.com/attachments/1148256815897915422/1159855975990304818/10071.mp4?ex=65328b0d&is=6520160d&hm=d6480af85f6d2d03a9c0396609c8830c1b384881cca1ecb782bb0b4f64c2811b&" type="video/mp4">
+    </video>
+    <video autoplay loop muted class="desktop-bg">
+        <source src="https://cdn.discordapp.com/attachments/1148256815897915422/1159829951290277888/reyearth.mp4?ex=653272d0&is=651ffdd0&hm=6bad1f49aeb2e32427d44dc8f90a63d98af85534d8ac49e647eefbec4c3af931&" type="video/mp4">
+    </video>
+    <script>
+        function updateNZSTTime() {
+            const nzstTimeElement = document.getElementById('nzst-time');
+            const options = { timeZone: 'Pacific/Auckland', timeStyle: 'short', hour24: false };
+            const nzstTime = new Date().toLocaleTimeString('en-NZ', options);
+            nzstTimeElement.textContent = `NZST ; ${nzstTime}`;
+        }
+        setInterval(updateNZSTTime, 1000);
+        updateNZSTTime();
+    </script>
+    <div class="copyright text-center text-gray-600 text-xs mt-4">
+        &copy; almostgen
+    </div>
+    <br>
+<p align="center">
+    <a href="https://github.com/AlmostGen">
+      <img src="svgs/github-mark.svg" alt="View My GitHub Profile" width="32" height="32">
+</p>
+</body>
+</html>

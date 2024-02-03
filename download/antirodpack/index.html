@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pika.rip/download</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+    <div class="bg-white p-8 rounded-md shadow-md max-w-md w-full mx-auto">
+        <h1 class="text-3xl font-bold mb-6 text-gray-800">Download AntiRodPack</h1>
+
+        <button id="downloadBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md transition duration-300 ease-in-out focus:outline-none">
+            Download File
+        </button>
+
+        <p id="status" class="mt-4 text-gray-600 hidden">Downloading...</p>
+
+        <script>
+            document.getElementById('downloadBtn').addEventListener('click', function() {
+                var githubUrl = 'https://cdn.discordapp.com/attachments/1148256815897915422/1173242165120479332/antirod.zip?ex=65633de9&is=6550c8e9&hm=38f13d79075368a61e04379b1704ccb8a289359f3ce080b02366130482b5a540&';
+                var statusElement = document.getElementById('status');
+                statusElement.classList.remove('hidden');
+                var link = document.createElement('a');
+                link.href = githubUrl;
+                link.download = 'downloaded-file.txt';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                setTimeout(function() {
+                    statusElement.classList.add('hidden');
+                }, 2000);
+            });
+        </script>
+    </div>
+
+</body>
+</html>
+

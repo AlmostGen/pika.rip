@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>pika.rip</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <header class="bg-green-600 p-4">
+        <h1 class="text-4xl font-bold text-white text-center">Perfect Playlist Builder</h1>
+    </header>
+    <main class="max-w-2xl mx-auto p-4 rounded-lg shadow-lg bg-gray-800">
+        <div class="mb-6">
+            <button class="bg-green-600 text-white px-4 py-2 rounded" id="login-button">Log in with Spotify</button>
+        </div>
+        <div class="mb-6">
+            <h2 class="text-2xl">Discover New Music And Refine Your Taste</h2>
+            <div class="flex items-center space-x-2">
+                <label for="genre-input" class="text-gray-300">Search for a Genre:</label>
+                <input type="text" id="genre-input" class="w-1/2 px-4 py-2 bg-gray-700 text-white rounded" placeholder="Enter a genre">
+                <button class="bg-green-600 text-white px-4 py-2 rounded" id="genre-search-button">Search Genre</button>
+            </div>
+        </div>
+        <div class="mb-6">
+            <div id="song-previews" class="hidden">
+                <audio id="song-preview" controls class="w-full"></audio>
+                <div class="flex items-center justify-between mt-2">
+                    <button class="bg-green-600 text-white px-4 py-2 rounded" id="prev-preview-button">Previous</button>
+                    <button class="bg-green-600 text-white px-4 py-2 rounded" id="next-preview-button">Next</button>
+                </div>
+                <button class="bg-green-600 text-white px-4 py-2 rounded mt-2" id="add-to-playlist-button">Add to Playlist</button>
+                <button class="bg-green-600 text-white px-4 py-2 rounded mt-2" id="re-roll-button">Re-roll</button>
+            </div>
+        </div>
+        <h3 class="text-2xl">Genre Recommendations</h3>
+        <ul id="genre-recommendations" class="list-inside list-decimal pl-4">
+        </ul>
+        <div class="mb-6">
+            <h3 class="text-2xl">Your Playlist</h3>
+            <ul id="playlist-tracks" class="list-inside list-decimal pl-4">
+            </ul>
+            <button class="bg-green-600 text-white px-4 py-2 rounded mt-2" id="save-playlist-button">Save Playlist to Spotify</button>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

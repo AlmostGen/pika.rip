@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <title>Services</title>
+    <style>
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto py-8">
+        <h1 class="text-3xl font-semibold text-center mb-4">Our Services</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <h2 class="text-xl font-semibold mb-2">Fruit Wordle</h2>
+                <p class="text-gray-600">A Basic Remake Of Wordle With The Answers Being Fruits.</p>
+                <a href="https://pika.rip/wordle" class="mt-4 block text-blue-500 hover:text-blue-700">Go There</a>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <h2 class="text-xl font-semibold mb-2">Spotify Song Recommender</h2>
+                <p class="text-gray-600">A Spotify Song Recommender That's Based On A Song Algorithm</p>
+                <a href="https://pika.rip/spotify" class="mt-4 block text-blue-500 hover:text-blue-700">Go There</a>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <h2 class="text-xl font-semibold mb-2">Number Guessing Game</h2>
+                <p class="text-gray-600">Try And Guess A Random Prime Number From 2 - 97</p>
+                <a href="https://pika.rip/numberguess" class="mt-4 block text-blue-500 hover:text-blue-700">Go There</a>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <h2 class="text-xl font-semibold mb-2">High or Low Guessing Game</h2>
+                <p class="text-gray-600">Choose your difficulty and try to guess the number from 1 to either 50, 100, or 300!</p>
+                <a href="https://pika.rip/highlowgame" class="mt-4 block text-blue-500 hover:text-blue-700">Go There</a>
+            </div>
+        </div>
+        <div class="text-center mt-8">
+            <a href="all-projects.html" class="bg-blue-500 text-white py-2 px-4 rounded-full inline-block hover:bg-blue-700 transition duration-300 ease-in-out">View All Projects</a>
+        </div>
+    </div>
+</body>
+</html>

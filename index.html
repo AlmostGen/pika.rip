@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pika.rip</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <style>
+      @media screen and (max-width: 640px) {
+        header {
+          padding: 1rem 0;
+        }
+
+        ul {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        li {
+          margin-bottom: 0.5rem;
+        }
+        section {
+          padding: 1rem;
+        }
+        .btn {
+          display: block;
+          margin: 1rem auto;
+        }
+      }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-gray-800 text-white py-4">
+        <nav class="container mx-auto">
+            <ul class="flex justify-center space-x-8">
+                <li><a href="#projects" class="hover:text-gray-300">Projects</a></li>
+                <li><a href="#about" class="hover:text-gray-300">About</a></li>
+                <li><a href="#discord" class="hover:text-gray-300">Discord</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about" class="py-16">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold mb-4">About Us</h1>
+            <p class="text-lg">Here at pika.rip we strive to provide top tier services for both the free and paid side of things.</p>
+            <p class="text-lg">Our goal is to make anything and everything available to you 24/7.</p>
+        </div>
+    </section>
+
+    <section id="dorize" class="py-16 bg-white">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold mb-8">Contact us!</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-200 p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold mb-2">Dorize</h2>
+                    <p>Dorize's discord profile, contact me there!
+                        <a href="https://pika.rip/dorize" class="btn inline-block mt-4 px-6 py-3 bg-blue-500 text-white hover:bg-blue-600 rounded-full">Check Me Out!</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-16 bg-white">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold mb-8">Our Services</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-200 p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold mb-2">Scarnode</h2>
+                    <p>Scarnode Is A POWERFUL And Reliable Minecraft Server Host
+                        <a href="https://scarnode.com" class="btn inline-block mt-4 px-6 py-3 bg-blue-500 text-white hover:bg-blue-600 rounded-full">Check Us Out</a>
+                    </p>
+                </div>
+                <div class="bg-gray-200 p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold mb-2">Pika.rip Tools</h2>
+                    <p>Tools Makes Every Type Of Web App / Service Easy To Access</p>
+                    <a href="https://pika.rip/tools" class="btn inline-block mt-4 px-6 py-3 bg-blue-500 text-white hover:bg-blue-600 rounded-full"> Tools Page</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="discord" class="py-16">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold mb-4">Discord</h1>
+            <p class="text-lg">Join Our Community And Help Us Grow So We Can Provide You With More And Better Quality Content / Services.</p>
+            <a href="https://discord.gg/mtVg3ayW9p" class="btn inline-block mt-4 px-6 py-3 bg-blue-500 text-white hover:bg-blue-600 rounded-full">Join Discord</a>
+        </div>
+    </section>
+</body>
+</html>

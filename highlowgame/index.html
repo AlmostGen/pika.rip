@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Pika.rip - High / Low Guessing Game</title>
+        <link href="style.css" rel="stylesheet" type="text/css " />
+    </head>
+
+    <body>
+        <div class="container">
+            <script src="script.js"></script>
+            <h1>High Low Game</h1>
+            <p id="intro">You must guess the number between a certain set of numbers, you have 5 guesses.</p>
+            <div>
+                <p id="diff">Choose your difficulty:</p>
+                <button id="easy" onclick="diffEasy()">Easy</button>
+                <button id="medium" onclick="diffMed()">Medium</button>
+                <button id="hard" onclick="diffHard()">Hard</button>
+            </div>
+            <div id="answers"></div>
+            <input id="guess-input" type="number" class="text-purple">
+            <button id="submit" onclick="playGame()">Submit</button>
+            <div id="answer"></div>
+        </div>
+    </body>
+</html>

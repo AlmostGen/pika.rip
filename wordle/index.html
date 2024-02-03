@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Fruit</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-200">
+    <div class="container mx-auto p-4 mt-4">
+        <h1 class="text-3xl font-semibold mb-4">Guess The 5 Letter Fruit</h1>
+        <div class="grid grid-cols-5 gap-2 mb-4">
+            <input type="text" id="guessInput" class="col-span-4 p-2 text-lg border border-gray-400 rounded focus:outline-none">
+            <button id="guessButton" class="col-span-1 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none">Guess</button>
+        </div>
+        <div id="feedback" class="mb-4"></div>
+        <div id="attempts" class="text-sm text-gray-600">Attempts: 0</div>
+    </div>
+    <script>
+        let attempts = 0;
+        let wordToGuess = "";
+    
+        document.getElementById("guessButton").addEventListener("click", handleGuess);
+        document.getElementById("guessInput").addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                handleGuess();
+            }
+        });
+    
+        function handleGuess() {
+            const guessInput = document.getElementById("guessInput");
+            const guess = guessInput.value.toLowerCase();
+    
+            if (guess.length !== 5) {
+                alert("Please enter a 5-letter word.");
+                return;
+            }
+    
+            attempts++;
+            document.getElementById("attempts").textContent = `Attempts: ${attempts}`;
+    
+            let feedback = "";
+    
+            for (let i = 0; i < wordToGuess.length; i++) {
+                if (guess[i] === wordToGuess[i]) {
+                    feedback += `<span class="text-green-500">${guess[i]}</span>`;
+                } else if (wordToGuess.includes(guess[i])) {
+                    feedback += `<span class="text-yellow-500">${guess[i]}</span>`;
+                } else {
+                    feedback += `<span class="text-red-500">${guess[i]}</span>`;
+                }
+            }
+    
+            document.getElementById("feedback").innerHTML = feedback;
+    
+            if (guess === wordToGuess) {
+                alert(`Congratulations! You guessed the word "${wordToGuess}" in ${attempts} attempts.`);
+                resetGame();
+                getRandomAnswer();
+            }
+    
+            guessInput.value = "";
+        }
+    
+        function resetGame() {
+            attempts = 0;
+            document.getElementById("attempts").textContent = "Attempts: 0";
+            document.getElementById("feedback").textContent = "";
+        }
+    
+        async function getRandomAnswer() {
+            try {
+                const response = await fetch('answers.json');
+                const data = await response.json();
+                const randomIndex = Math.floor(Math.random() * data.length);
+                const randomAnswer = data[randomIndex];
+                wordToGuess = randomAnswer;
+                document.getElementById('selectedAnswer').textContent = randomAnswer;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+        getRandomAnswer();
+    </script>    
+</body>
+</html>
+<p></p>
