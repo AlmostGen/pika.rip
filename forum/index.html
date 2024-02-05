@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">    
+    <style>
+        .dark-mode {
+            background-color: #1a202c;
+        }
+        .dark-mode .text-black {
+            color: #000000;
+        }
+        
+    </style>
+    <title>Login Page</title>
+</head>
+<body class="light-mode flex items-center justify-center h-screen">
+    <button id="toggleMode" class="absolute top-4 right-4 p-2 bg-gray-100 text-white rounded-md cursor-pointer">
+        <img id="icon" src="assets/images/moon.svg" alt="Moon" class="w-8 h-8">
+    </button>
+    <div class="bg-gray-100 p-8 rounded-lg shadow-md ring ring-gray-300 ring-opacity-25 w-full sm:w-96">
+        <h2 class="text-2xl font-semibold mb-6 text-center">
+            <span class="dark:text-black">Login</span>
+        </h2>        
+        <form id="loginForm">
+            <div class="mb-4">
+                <label for="username" class="block text-sm font-medium text-gray-600">
+                    <span class="dark:text-black">Email / Username</span>
+                </label>
+                <input type="email" id="username" name="username" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-600">
+                    <span class="dark:text-black">Password</span>
+                </label>
+                <input type="password" id="password" name="password" class="mt-1 p-2 w-full border rounded-md">
+            </div>
+
+            <button type="submit" class="w-full bg-gray-800 text-white p-2 rounded-md hover:bg-gray-600 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200">
+                Login
+            </button>
+        </form>
+        <div class="mt-6">
+            <p class="text-gray-600 text-sm">
+                <span class="dark:text-black">Current time in <span id="timezone">{userTimeZone}</span>:</span>
+            </p>
+            <p id="time" class="text-lg font-bold"></p>
+        </div>
+        <script src="app.js"></script>
+    </div>
+    <script>
+        const body = document.body;
+        const toggleButton = document.getElementById('toggleMode');
+        const icon = document.getElementById('icon');
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            body.classList.toggle('dark-mode');
+            // Toggle between sun and moon images
+            if (icon.src.endsWith('moon.svg')) {
+                icon.src = 'assets/images/sun.svg';
+            } else {
+                icon.src = 'assets/images/moon.svg';
+            }
+        });
+    </script>
+</body>
+</html>
