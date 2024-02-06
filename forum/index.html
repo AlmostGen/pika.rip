@@ -17,7 +17,7 @@
 </head>
 <body class="light-mode flex items-center justify-center h-screen">
     <button id="toggleMode" class="absolute top-4 right-4 p-2 bg-gray-100 text-white rounded-md cursor-pointer">
-        <img id="icon" src="assets/images/moon.svg" alt="Moon" class="w-8 h-8">
+        <img id="icon" src="assets/img/moon.svg" alt="Moon" class="w-8 h-8">
     </button>
     <div class="bg-gray-100 p-8 rounded-lg shadow-md ring ring-gray-300 ring-opacity-25 w-full sm:w-96">
         <h2 class="text-2xl font-semibold mb-6 text-center">
@@ -60,9 +60,9 @@
             body.classList.toggle('dark-mode');
             // Toggle between sun and moon images
             if (icon.src.endsWith('moon.svg')) {
-                icon.src = 'assets/images/sun.svg';
+                icon.src = 'assets/img/sun.svg';
             } else {
-                icon.src = 'assets/images/moon.svg';
+                icon.src = 'assets/img/moon.svg';
             }
         });
     </script>
