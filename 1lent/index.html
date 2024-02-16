@@ -1,1 +1,38 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1lent thingy</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" src="real.css">
+</head>
+<body class="bg-black font-sans">
+    <div id="particles-js"></div>
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 100,
+                },
+                size: {
+                    value: 3,
+                },
+            },
+            interactivity: {
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse",
+                    },
+                },
+            },
+        });
+        function toggleFAQ() {
+            var faqSection = document.getElementById("faqSection");
+            faqSection.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
