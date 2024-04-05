@@ -1,7 +1,7 @@
 const msalConfig = {
     auth: {
         clientId: '25270647-3321-4e4d-9f26-3a6bc9ae725f',
-        authority: 'https://login.microsoftonline.com/organizations/f8cdef31-a31e-4b4a-93e4-5f571e91255a',
+        authority: 'https://login.microsoftonline.com/f8cdef31-a31e-4b4a-93e4-5f571e91255a',
         redirectUri: 'https://pika.rip/auth/callback',
         knownAuthorities: ['https://login.microsoftonline.com/f8cdef31-a31e-4b4a-93e4-5f571e91255a']
     }
