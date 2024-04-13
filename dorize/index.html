@@ -4,100 +4,166 @@
 <head>
     <meta charset="utf-8">
     <title>Dorize - pika.rip</title>
-    <link href="generated.css" rel="stylesheet">
-    <script>
-        window.ondataload = () => { }
-        fetch("https://api.lanyard.rest/v1/users/586541508132470805").then((a) => a.json().then((a) => {
-            window.lanyard = a.data
-            window.ondataload()
-        }))
-    </script>
+    <link href="https://unpkg.com/xp.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body, html {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .window {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #ececec;
+            border: 1px solid #666;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            overflow: auto; /* Enable scrolling if content exceeds window height */
+        }
+
+        .title-bar {
+            background-color: #0046a1;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title-bar-controls button {
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            margin-left: 5px;
+            outline: none;
+        }
+
+        .title-bar-controls button:hover {
+            color: #f00;
+        }
+
+        .window-body {
+            padding: 20px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .menu ul li a:hover {
+            color: #0046a1;
+        }
+
+        .avatar {
+            width: auto;
+            height: 128px;
+            margin-right: 20px;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+        }
+
+        .text-subtext0 {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .text-subtext1 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .text-lg {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .button {
+            background-color: #0046a1;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .button:hover {
+            background-color: #002147;
+        }
+
+        .style-pixelated {
+            image-rendering: pixelated;
+        }
+    </style>
 </head>
 
-<body class="mocha text-white">
-    <div class="min-h-screen bg-base">
-        <nav class="sticky top-5 z-50 mx-10">
-            <div class="w-full bg-background/95 backdrop-blur bg-surface0 border rounded-2xl">
-                <div class="flex h-14 items-center">
-
-                    <a class="mx-8" href="https://pika.rip">
-                        <h1 class="text-xl font-extrabold">pika.rip</h1>
-                        <h2 class="text-sm">a bunch of random shit</h2>
-                    </a>
-
-                    <div class="flex flex-1 mx-5 text-text items-center justify-end gap-5">
-                        <a href="https://pika.rip">Home (pika.rip)</a>
-                        <a href="/">Contact</a>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <div class="title-bar-text">Dorize - pika.rip</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize">-</button>
+                <button aria-label="Maximize">□</button>
+                <button aria-label="Close">X</button>
+            </div>
+        </div>
+        <div class="window-body">
+            <div class="window-content">
+                <div class="menu">
+                    <ul>
+                        <li><a href="https://pika.rip">Home (pika.rip)</a></li>
+                        <li><a href="/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="flex">
+                        <a href="https://discord.com/users/586541508132470805">
+                            <img class="avatar" src="https://lanyard.cnrad.dev/api/586541508132470805?borderRadius=30px&animated=true" alt="Avatar">
+                        </a>
+                        <div>
+                            <h1 class="text-5xl font-bold mt-4 align-middle text-pink-300">Dorize <span class="text-subtext0"></span></h1>
+                        </div>
                     </div>
+
+                    <h2 class="text-3xl text-subtext1">Minecraft SKUnity, Java, JavaScript, HTML, CSS, Python</h2>
+
+                    <p class="max-w-xl mt-10 text-lg">Hi! I'm Dorize, a developer using Java, JavaScript, HTML, CSS, SKUnity, and Python.</p>
+
+                    <section class="flex flex-row flex-wrap gap-5 mt-20 style-pixelated">
+                        <button onclick="window.location.href='pika.rip'">Pika.rip</button>
+                        <button onclick="window.location.href='discord.gg/zrWnqH9tat'">Discord</button>
+                        
+                        <!---
+                        <a href="https://pika.rip" class="button">pika.rip</a>
+                        <a href="https://discord.gg/zrWnqH9tat" class="button">Discord</a>
+                        --->
+                    </section>
                 </div>
             </div>
-        </nav>
-        <div class="flex mt-20 justify-center pb-10">
-            
-<script>
-  window.ondataload = () => {
-    avatar.src = `https://cdn.discordapp.com/avatars/586541508132470805/${window.lanyard.discord_user.avatar}.webp?size=128`
-    if (window.lanyard.discord_status != "offline") {
-      statusText.innerText = "Online"
-      if (window.lanyard.listening_to_spotify) {
-        const sanitized = window.lanyard.spotify.song.replace(/./gm, function (s) {
-          // return "&#" + s.charCodeAt(0) + ";";
-          return (s.match(/[a-z0-9\s]+/i)) ? s : "&#" + s.charCodeAt(0) + ";";
-        });
-        statusText.innerHTML = `Listening to <a href="https://open.spotify.com/track/${encodeURIComponent(window.lanyard.spotify.track_id)}" class="opacity-50">${sanitized}</a>`
-      }
-
-      const status = window.lanyard.activities.find((activity) => activity.id == "custom")?.state
-
-      if (status) {
-        statusText.innerText = "\"" + status + "\""
-        statusText.classList.add("italic", "opacity-80")
-      }
-
-      statusText.classList.add("text-green")
-      statusCircle.classList.add("bg-green")
-    } else {
-      statusText.innerText = "Offline"
-      statusText.classList.add("text-red")
-      statusCircle.classList.add("bg-red")
-    }
-  }
-</script>
-<div>
-  <div class="flex flex-row items-center gap-5 mb-2">
-    <img id="avatar" alt="Profile Picture" class="rounded-full border-4 border-pink border-opacity-60 w-24 h-24" />
-    <div class="flex flex-col gap-0">
-      <h1 class="text-5xl font-bold mt-4 align-middle text-pink-300">Dorize<span class="text-2xl text-subtext0 align-top">
-          (he/him)</span></h1>
-      <div class="flex flex-row items-center gap-[.0001rem]">
-        <div id="statusCircle" class="w-[28px] h-[28px] rounded-full"></div>
-
-        <p class="text-3xl mb-4 font-semibold p-[.4em_0_0_.4em]" id="statusText" />
-      </div>
-    </div>
-  </div>
-
-
-  <h2 class="text-3xl text-subtext1">Minecraft SKUnity, some little Python</h2>
-
-  <p class="max-w-xl mt-10 text-text text-lg">
-    hi! im Dorize im a developer, mostly using SKUnity. <br/> I am also learning some Python!
-  </p>
-
-  <section class="flex flex-row flex-wrap gap-5 mt-20" style="image-rendering: pixelated;">
-    <a href="https://pika.rip">
-      <img src="./img/buttons/pika-rip.webp" alt="pika.rip" />
-    </a>
-    <a href="https://discord.gg/zrWnqH9tat">
-      <img src="./img/buttons/discord.webp" alt="adryd.com" />
-    </a>
-
-  </section>
-</div>
-
-
         </div>
-
     </div>
 </body>
 
